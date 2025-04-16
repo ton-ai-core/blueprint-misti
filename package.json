@@ -3,7 +3,7 @@
   "version": "0.8.2",
   "description": "Blueprint Misti Plugin",
   "bugs": "https://github.com/nowarp/blueprint-misti/issues",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "author": "Georgiy Komarov <jubnzv@gmail.com>",
   "license": "Apache-2.0",
   "repository": {
