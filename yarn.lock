@@ -1304,13 +1304,6 @@
   dependencies:
     "@octokit/openapi-types" "^23.0.1"
 
-"@orbs-network/ton-access@^2.3.3":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@orbs-network/ton-access/-/ton-access-2.3.3.tgz#20292f83b52a75f451f185821180a7d9b829bcd3"
-  integrity sha512-b1miCPts7wBG9JKYgzXIRZQm/LMy5Uk1mNK8NzlcXHL3HRHJkkFbuYJGuj3IkWCiIicW3Ipp4sYnn3Fwo4oB0g==
-  dependencies:
-    isomorphic-fetch "^3.0.0"
-
 "@pnpm/config.env-replace@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@pnpm/config.env-replace/-/config.env-replace-1.1.0.tgz#ab29da53df41e8948a00f2433f085f54de8b3a4c"
@@ -1393,11 +1386,6 @@
     detect-newline "^4.0.1"
     string-template "^1.0.0"
 
-"@scarf/scarf@^1.1.1":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.4.0.tgz#3bbb984085dbd6d982494538b523be1ce6562972"
-  integrity sha512-xxeapPiUXdZAE3che6f3xogoJPeZgig6omHEy1rIY5WVsB3H2BHNnZH+gHG6x91SCWyQCzWGsuL2Hh3ClO5/qQ==
-
 "@sec-ant/readable-stream@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@sec-ant/readable-stream/-/readable-stream-0.4.1.tgz#60de891bb126abfdc5410fdc6166aca065f10a0c"
@@ -1440,23 +1428,6 @@
     commander "^4.1.1"
     ignore "^5.1.8"
     p-map "^4.0.0"
-
-"@tact-lang/compiler@^1.4.0":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@tact-lang/compiler/-/compiler-1.6.1.tgz#a375914ad53b4bb56312a204d27aff14e8491b1a"
-  integrity sha512-EgC3dD/Nje90VHaPB4qLqAZolbf3LE0gyC6JGrWy+IOClEciAYgGZhNzE6UQam/m+K1LfCqurDv1GESq1x1Efw==
-  dependencies:
-    "@tact-lang/opcode" "^0.3.0"
-    "@ton/core" "0.60.1"
-    "@ton/crypto" "^3.2.0"
-    "@tonstudio/parser-runtime" "^0.0.1"
-    blockstore-core "1.0.5"
-    change-case "^4.1.2"
-    ipfs-unixfs-importer "9.0.10"
-    json-bigint "^1.0.0"
-    ohm-js "^17.1.0"
-    path-normalize "^6.0.13"
-    zod "^3.22.4"
 
 "@tact-lang/compiler@~1.5.2":
   version "1.5.4"
@@ -1507,35 +1478,33 @@
     "@ton/core" "^0.60.0"
     "@ton/crypto" "^3.3.0"
 
-"@ton-community/func-js-bin@0.4.4-newops.1":
-  version "0.4.4-newops.1"
-  resolved "https://registry.yarnpkg.com/@ton-community/func-js-bin/-/func-js-bin-0.4.4-newops.1.tgz#d21cd01da8abf29cb301969f782c01b0852fdac5"
-  integrity sha512-TV4t6XhmItq4t+wv4pV30yEwb+YvdmsKo4Ig4B0zp4PLdI0r9iZHz4y5bBHcXmDQDRqulXzK6kTgfHvs2CIsaQ==
-
-"@ton-community/func-js@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@ton-community/func-js/-/func-js-0.7.0.tgz#8bb334f4649b30b6d1e13ef1a3daa5670a0a8404"
-  integrity sha512-VYJsv6Pqz6+qh3HlZWReBG5W9RXutAdIFYDqmblPSCXfjBhx/QjON/3WoppzUVrqQQdD0BVIh4PR+xRHRCBNhw==
+"@ton-ai-core/blueprint@^0.30.13":
+  version "0.30.13"
+  resolved "https://registry.yarnpkg.com/@ton-ai-core/blueprint/-/blueprint-0.30.13.tgz#1e60f179ef39215ba2da573d391010f00f0a49d5"
+  integrity sha512-iJ6Vk4WlBKrVOjzAWVCAHN6RT2VnJbEPkLFiDhl6hRwwngJtEao+btJgcprUlHePEvt6S86GkOc19V/bgqKCgQ==
   dependencies:
-    "@ton-community/func-js-bin" "0.4.4-newops.1"
-    arg "^5.0.2"
-
-"@ton/blueprint@^0.22.0":
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/@ton/blueprint/-/blueprint-0.22.0.tgz#58ee2cb666bd15b0ee1bb119f7051b5ede6cdae6"
-  integrity sha512-+2HeuyGTogitavxZvH4TP0Cpr7y1muSTRva4uLxiiF9emliCqzKLuHgv+3rGr+lZGCcmjsld+U3TKsX+LVEqsg==
-  dependencies:
-    "@orbs-network/ton-access" "^2.3.3"
-    "@tact-lang/compiler" "^1.4.0"
-    "@ton-community/func-js" "^0.7.0"
+    "@ton-api/client" "^0.2.0"
+    "@ton-api/ton-adapter" "^0.2.0"
     "@tonconnect/sdk" "^2.2.0"
     arg "^5.0.2"
+    axios "^1.7.7"
     chalk "^4.1.0"
     dotenv "^16.1.4"
     inquirer "^8.2.5"
     qrcode-terminal "^0.12.0"
-    ton-x "^2.1.0"
     ts-node "^10.9.1"
+
+"@ton-api/client@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ton-api/client/-/client-0.2.0.tgz#82ca5cfba84919fd5010260d5695496af5b4e785"
+  integrity sha512-m/T8Nroq4rghUcg72Bbt2He9x5g9RlrP4F9rs7J4DVYLMHnKQTlKDo9JMD/feLXtHxOMh/YGJNcb+BGBkNbNug==
+  dependencies:
+    core-js-pure "^3.38.0"
+
+"@ton-api/ton-adapter@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ton-api/ton-adapter/-/ton-adapter-0.2.0.tgz#d118ed8fe683c670907b0d94d52ee3847b8050f4"
+  integrity sha512-0l1Y7pgi6/N6HOqRAdgOemDssYB4sXKtHWSKgm+cDL754ZMP3gsj/6pEmgOo/H7+itsKf4t0UqOU0q2JuqG/zw==
 
 "@ton/core@0.58.1":
   version "0.58.1"
@@ -1683,13 +1652,6 @@
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@types/benchmark/-/benchmark-2.1.5.tgz#940c1850c18fdfdaee3fd6ed29cd92ae0d445b45"
   integrity sha512-cKio2eFB3v7qmKcvIHLUMw/dIx/8bhWPuzpzRT4unCPRTD8VdA9Zb0afxpcxOqR4PixRS7yT42FqGS8BYL8g1w==
-
-"@types/bn.js@^5.1.0":
-  version "5.1.6"
-  resolved "https://registry.yarnpkg.com/@types/bn.js/-/bn.js-5.1.6.tgz#9ba818eec0c85e4d3c679518428afdf611d03203"
-  integrity sha512-Xh8vSwUeMKeYYrj3cX4lGQgFSF/N03r+tv4AiLl1SucqV+uTQpxRcnM8AkXKHwYP9ZPXOYXRr2KPXpVlIvqh9w==
-  dependencies:
-    "@types/node" "*"
 
 "@types/fs-extra@^11.0.4":
   version "11.0.4"
@@ -2025,25 +1987,19 @@ atomically@^2.0.3:
     stubborn-fs "^1.2.5"
     when-exit "^2.1.1"
 
-axios@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.25.0.tgz#349cfbb31331a9b4453190791760a8d35b093e0a"
-  integrity sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==
-  dependencies:
-    follow-redirects "^1.14.7"
-
-axios@^0.27.0:
-  version "0.27.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
-  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
-  dependencies:
-    follow-redirects "^1.14.9"
-    form-data "^4.0.0"
-
 axios@^1.6.7:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.8.1.tgz#7c118d2146e9ebac512b7d1128771cdd738d11e3"
   integrity sha512-NN+fvwH/kV01dYUQ3PTOZns4LWtWhOFCAhQ/pHb88WQ1hNe5V/dvFwc4VJcDL11LT9xSX0QtsR8sWUuyOuOq7g==
+  dependencies:
+    follow-redirects "^1.15.6"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
+axios@^1.7.7:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.8.4.tgz#78990bb4bc63d2cae072952d374835950a82f447"
+  integrity sha512-eBSYY4Y68NNlHbHBMdeDmKNtDgXWhQsJcGqzO3iLUM0GraQFSS9cVgPX5I9b3lbdFKyYoAEGAZF1DwhTaljNAw==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -2176,21 +2132,6 @@ blockstore-core@1.0.5:
     it-filter "^1.0.2"
     it-take "^1.0.1"
     multiformats "^9.4.7"
-
-bn.js@4.11.6:
-  version "4.11.6"
-  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.6.tgz#53344adb14617a13f6e8dd2ce28905d1c0ba3215"
-  integrity sha512-XWwnNNFCuuSQ0m3r3C4LE3EiORltHd9M05pq6FOlVeiophzRbMo50Sbz1ehl8K3Z+jw9+vmgnXefY1hz8X+2wA==
-
-bn.js@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.2.0.tgz#358860674396c6997771a9d051fcc1b57d4ae002"
-  integrity sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==
-
-bn.js@^5.2.0:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.2.1.tgz#0bc527a6a0d18d0aa8d5b0538ce4a77dccfa7b70"
-  integrity sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==
 
 boxen@^8.0.1:
   version "8.0.1"
@@ -2545,6 +2486,11 @@ convert-source-map@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-2.0.0.tgz#4b560f649fc4e918dd0ab75cf4961e8bc882d82a"
   integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
+
+core-js-pure@^3.38.0:
+  version "3.41.0"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.41.0.tgz#349fecad168d60807a31e83c99d73d786fe80811"
+  integrity sha512-71Gzp96T9YPk63aUvE5Q5qP+DryB4ZloUZPSOebGM88VNw8VNfvdA7z6kGA8iGOTEzAomsRidp4jXSmUIJsL+Q==
 
 core-util-is@^1.0.3:
   version "1.0.3"
@@ -3072,14 +3018,6 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-ethjs-unit@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/ethjs-unit/-/ethjs-unit-0.1.6.tgz#c665921e476e87bce2a9d588a6fe0405b2c41699"
-  integrity sha512-/Sn9Y0oKl0uqQuvgFk/zQgR7aw1g36qX/jzSQ5lSwlO0GigPymk4eGQfeNTD03w1dPOqfz8V77Cy43jH56pagw==
-  dependencies:
-    bn.js "4.11.6"
-    number-to-bn "1.7.0"
-
 eventsource@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/eventsource/-/eventsource-2.0.2.tgz#76dfcc02930fb2ff339520b6d290da573a9e8508"
@@ -3298,7 +3236,7 @@ flatted@^3.2.9, flatted@^3.3.1:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.3.3.tgz#67c8fad95454a7c7abebf74bb78ee74a44023358"
   integrity sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==
 
-follow-redirects@^1.14.7, follow-redirects@^1.14.9, follow-redirects@^1.15.6:
+follow-redirects@^1.15.6:
   version "1.15.9"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.9.tgz#a604fa10e443bf98ca94228d9eebcc2e8a2c8ee1"
   integrity sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==
@@ -3312,11 +3250,6 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     es-set-tostringtag "^2.1.0"
     mime-types "^2.1.12"
-
-fp-ts@^2.11.1, fp-ts@^2.12.0:
-  version "2.16.9"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.16.9.tgz#99628fc5e0bb3b432c4a16d8f4455247380bae8a"
-  integrity sha512-+I2+FnVB+tVaxcYyQkHUq7ZdKScaBlX53A41mxQtpIccsfyv8PzdzP7fzp2AY832T4aoK6UZ5WRX/ebGd8uZuQ==
 
 fs-extra@^11.2.0:
   version "11.3.0"
@@ -3736,18 +3669,6 @@ interpret@^1.0.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
-io-ts-reporters@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/io-ts-reporters/-/io-ts-reporters-2.0.1.tgz#0154545aefd115f0f175a41743ed7327d19b1c34"
-  integrity sha512-RVpLstYBsmTGgCW9wJ5KVyN/eRnRUDp87Flt4D1O3aJ7oAnd8csq8aXuu7ZeNK8qEDKmjUl9oUuzfwikaNAMKQ==
-  dependencies:
-    "@scarf/scarf" "^1.1.1"
-
-io-ts@^2.2.16:
-  version "2.2.22"
-  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.22.tgz#5ab0d3636fe8494a275f0266461ab019da4b8d0b"
-  integrity sha512-FHCCztTkHoV9mdBsHpocLpdTAfh956ZQcIkWQxxS0U5HT53vtrcuYdQneEJKH6xILaLNzXVl2Cvwtoy8XNN0AA==
-
 ip-address@^9.0.5:
   version "9.0.5"
   resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-9.0.5.tgz#117a960819b08780c3bd1f14ef3c1cc1d3f3ea5a"
@@ -3823,11 +3744,6 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3:
   integrity sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==
   dependencies:
     is-extglob "^2.1.1"
-
-is-hex-prefixed@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/is-hex-prefixed/-/is-hex-prefixed-1.0.0.tgz#7d8d37e6ad77e5d127148913c573e082d777f554"
-  integrity sha512-WvtOiug1VFrE9v1Cydwm+FnXd3+w9GaeVUss5W4v/SLy3UW00vP+6iNF2SdnfiBoLy4bTqVdkftNGTUeOFVsbA==
 
 is-in-ci@^1.0.0:
   version "1.0.0"
@@ -3937,14 +3853,6 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
-
-isomorphic-fetch@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#0267b005049046d2421207215d45d6a262b8b8b4"
-  integrity sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==
-  dependencies:
-    node-fetch "^2.6.1"
-    whatwg-fetch "^3.4.1"
 
 issue-parser@7.0.1:
   version "7.0.1"
@@ -4865,14 +4773,6 @@ npm-run-path@^6.0.0:
     path-key "^4.0.0"
     unicorn-magic "^0.3.0"
 
-number-to-bn@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/number-to-bn/-/number-to-bn-1.7.0.tgz#bb3623592f7e5f9e0030b1977bd41a0c53fe1ea0"
-  integrity sha512-wsJ9gfSz1/s4ZsJN01lyonwuxA1tml6X1yBDnfpMglypcBRFZZkus26EdPSlqS5GJfYddVZa22p3VNb3z5m5Ig==
-  dependencies:
-    bn.js "4.11.6"
-    strip-hex-prefix "1.0.0"
-
 ohm-js@^17.1.0:
   version "17.1.0"
   resolved "https://registry.yarnpkg.com/ohm-js/-/ohm-js-17.1.0.tgz#50d8e08f69d7909931998d75202d35e2a90c8885"
@@ -5715,13 +5615,6 @@ strip-final-newline@^4.0.0:
   resolved "https://registry.yarnpkg.com/strip-final-newline/-/strip-final-newline-4.0.0.tgz#35a369ec2ac43df356e3edd5dcebb6429aa1fa5c"
   integrity sha512-aulFJcD6YK8V1G7iRB5tigAP4TsHBZZrOV8pjV++zdUwmeV8uzbY7yn6h9MswN62adStNZFuCIx4haBnRuMDaw==
 
-strip-hex-prefix@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/strip-hex-prefix/-/strip-hex-prefix-1.0.0.tgz#0c5f155fef1151373377de9dbb588da05500e36f"
-  integrity sha512-q8d4ue7JGEiVcypji1bALTos+0pWtyGlivAWyPuTkHzuTCJqrK9sWxYQZUq6Nq3cuyv3bm734IhHvHtGGURU6A==
-  dependencies:
-    is-hex-prefixed "1.0.0"
-
 strip-json-comments@5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-5.0.1.tgz#0d8b7d01b23848ed7dbdf4baaaa31a8250d8cfa0"
@@ -5776,7 +5669,7 @@ tapable@^2.2.0:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
 
-teslabot@^1.3.0, teslabot@^1.5.0:
+teslabot@^1.3.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/teslabot/-/teslabot-1.5.0.tgz#70f544516699ca5f696d8ae94f3d12cd495d5cd6"
   integrity sha512-e2MmELhCgrgZEGo7PQu/6bmYG36IDH+YrBI1iGm6jovXkeDIGa3pZ2WSqRjzkuw2vt1EqfkZoV5GpXgqL8QJVg==
@@ -5826,62 +5719,6 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
-
-ton-crypto-primitives@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ton-crypto-primitives/-/ton-crypto-primitives-2.0.0.tgz#e85cd68c0d523f6bdf3f306201a76e51b7e9312e"
-  integrity sha512-K+qKjpS0h9sPW6oExcpxnzuQ7nEgHEiDKwIqE/jWD25o8iFGe3FWj1gKxFNbKE9wwYKc5IV8FwrU+raF0KO5nQ==
-  dependencies:
-    jssha "3.2.0"
-
-ton-crypto@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ton-crypto/-/ton-crypto-2.1.0.tgz#10b1de64a9cd92bde5a8a6678f952f49335c7e9a"
-  integrity sha512-PZnmCOShfgq9tCRM8E7hG8nCkpkOyZvDLPXmZN92ZEBrfTT0NKKf0imndkxG5DkgWMjc6IKfgpnEaJDH9qN6ZQ==
-  dependencies:
-    jssha "3.2.0"
-    ton-crypto-primitives "2.0.0"
-    tweetnacl "1.0.3"
-
-ton-crypto@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/ton-crypto/-/ton-crypto-3.2.0.tgz#cf8cd5410d8f04b04b359f80415b11efb312c60e"
-  integrity sha512-fltdBNQ45gARMuGMEOjPZWPJ5eSql8p3CA0Dj7tPv5lhU5ziT8SxXLAzDraR9HJ8YpjBHLVvYyhMLRiEwxgtMQ==
-  dependencies:
-    jssha "3.2.0"
-    ton-crypto-primitives "2.0.0"
-    tweetnacl "1.0.3"
-
-ton-x@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ton-x/-/ton-x-2.1.0.tgz#d4983a5c487bbcbe76b5e374ad346024afb06b4e"
-  integrity sha512-AJx4kRaRqPdTCQO8ik8E0aICg4NutUgTxnepbjoc7Emi3bMKoANiketmOFK07+vFX9QQO2NoJnqM8kgSsposhw==
-  dependencies:
-    "@types/bn.js" "^5.1.0"
-    axios "^0.27.0"
-    bn.js "^5.2.0"
-    fp-ts "^2.12.0"
-    io-ts "^2.2.16"
-    teslabot "^1.5.0"
-    ton "9.8.0"
-    ton-crypto "^3.0.0"
-
-ton@9.8.0:
-  version "9.8.0"
-  resolved "https://registry.yarnpkg.com/ton/-/ton-9.8.0.tgz#28bc72276ebcacf9dff24f617505c55ccaa614ef"
-  integrity sha512-aH/7ODiEulPRZracSfQ4KeaV6iDmzjn14+YMsZ9x0sNlzhtP4blMIFXPJFp4BOc4INb5vTrfA0u+JtOoXlBO0A==
-  dependencies:
-    axios "^0.25.0"
-    bn.js "5.2.0"
-    dataloader "^2.0.0"
-    ethjs-unit "0.1.6"
-    fp-ts "^2.11.1"
-    io-ts "^2.2.16"
-    io-ts-reporters "^2.0.0"
-    symbol.inspect "1.0.1"
-    teslabot "^1.3.0"
-    ton-crypto "2.1.0"
-    tweetnacl "1.0.3"
 
 tr46@~0.0.3:
   version "0.0.3"
@@ -6118,11 +5955,6 @@ webidl-conversions@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
   integrity sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==
-
-whatwg-fetch@^3.4.1:
-  version "3.6.20"
-  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.6.20.tgz#580ce6d791facec91d37c72890995a0b48d31c70"
-  integrity sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==
 
 whatwg-url@^5.0.0:
   version "5.0.0"

@@ -19,7 +19,7 @@ describe("extractProjectInfo", () => {
     const projectName = "TestContract";
     const compileFilePath = path.join(tempDir, `${projectName}.compile.ts`);
     const compileFileContent = `
-      import { CompilerConfig } from '@ton/blueprint';
+      import { CompilerConfig } from '@ton-ai-core/blueprint';
       export const compile: CompilerConfig = {
           lang: 'tact',
           target: 'contracts/test1.tact',
@@ -43,7 +43,7 @@ describe("extractProjectInfo", () => {
     const projectName = "FuncContract";
     const compileFilePath = path.join(tempDir, `${projectName}.compile.ts`);
     const compileFileContent = `
-      import { CompilerConfig } from '@ton/blueprint';
+      import { CompilerConfig } from '@ton-ai-core/blueprint';
       export const compile: CompilerConfig = {
           lang: 'func',
           targets: ['contracts/test2.func'],

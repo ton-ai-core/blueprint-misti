@@ -4,12 +4,12 @@
  * @packageDocumentation
  */
 
-import { Args } from "@ton/blueprint";
+import { Args } from "@ton-ai-core/blueprint";
 import {
   getCompilablesDirectory,
   COMPILE_END,
-} from "@ton/blueprint/dist/compile/compile";
-import { CompilerConfig } from "@ton/blueprint/dist/compile/CompilerConfig";
+} from "@ton-ai-core/blueprint/dist/compile/compile";
+import { CompilerConfig } from "@ton-ai-core/blueprint/dist/compile/CompilerConfig";
 import { ConfigProject } from "@tact-lang/compiler";
 import path from "path";
 

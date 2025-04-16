@@ -1,5 +1,5 @@
-import { Args, UIProvider } from "@ton/blueprint";
-import { findCompiles, selectFile } from "@ton/blueprint/dist/utils";
+import { Args, UIProvider } from "@ton-ai-core/blueprint";
+import { findCompiles, selectFile } from "@ton-ai-core/blueprint/dist/utils";
 import { Sym } from "./util";
 import {
   TactProjectInfo,

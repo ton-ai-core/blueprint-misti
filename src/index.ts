@@ -1,4 +1,4 @@
-import { Plugin, PluginRunner } from "@ton/blueprint";
+import { Plugin, PluginRunner } from "@ton-ai-core/blueprint";
 import { misti } from "./misti";
 
 export class MistiPlugin implements Plugin {

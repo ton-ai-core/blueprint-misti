@@ -1,4 +1,4 @@
-import { Runner, Args, UIProvider } from "@ton/blueprint";
+import { Runner, Args, UIProvider } from "@ton-ai-core/blueprint";
 import { MistiExecutor } from "./executor";
 import { Sym } from "./util";
 import { Result, resultToString } from "@nowarp/misti/dist/cli";

@@ -1,6 +1,6 @@
 import { toNano } from '@ton/core';
 import { Test } from '../wrappers/Test';
-import { NetworkProvider } from '@ton/blueprint';
+import { NetworkProvider } from '@ton-ai-core/blueprint';
 
 export async function run(provider: NetworkProvider) {
     const test = provider.open(await Test.fromInit());
