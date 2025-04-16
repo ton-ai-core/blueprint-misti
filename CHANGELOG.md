@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Include test directory in tsconfig.json to resolve ESLint errors
+
 ## [0.8.0] - 2025-04-08
 
 ### Added
