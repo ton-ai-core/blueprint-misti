@@ -58,7 +58,7 @@ const runIntegrationTests = process.env.RUN_INTEGRATION_TESTS === "true";
         console.log("Creating blueprint.config.ts...");
         fs.writeFileSync(
           path.join(tempDir, "test-project", "blueprint.config.ts"),
-          `import { MistiPlugin } from '@nowarp/blueprint-misti';\nexport const config = {\n  plugins: [\n    new MistiPlugin(),\n  ],\n};\n`,
+          `import { MistiPlugin } from '@ton-ai-core/blueprint-misti';\nexport const config = {\n  plugins: [\n    new MistiPlugin(),\n  ],\n};\n`,
         );
 
         // Run blueprint misti

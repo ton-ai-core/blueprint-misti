@@ -14,7 +14,7 @@ yarn add file:/path/to/blueprint-misti
 ```
 4. Add the Blueprint configuration to the project:
 ```bash
-echo "import { MistiPlugin } from '@nowarp/blueprint-misti';
+echo "import { MistiPlugin } from '@ton-ai-core/blueprint-misti';
 export const config = {
   plugins: [
     new MistiPlugin(),

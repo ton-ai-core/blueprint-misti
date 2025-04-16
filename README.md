@@ -8,12 +8,12 @@ A plugin for the [Blueprint Framework](https://github.com/ton-org/blueprint/) th
 
 2. Add this plugin as a dependency of your Blueprint project:
 ```bash
-yarn add @nowarp/blueprint-misti
+yarn add @ton-ai-core/blueprint-misti
 ```
 
 3. Add this configuration to `blueprint.config.ts`:
 ```ts
-import { MistiPlugin } from '@nowarp/blueprint-misti';
+import { MistiPlugin } from '@ton-ai-core/blueprint-misti';
 export const config = {
   plugins: [
     new MistiPlugin(),
