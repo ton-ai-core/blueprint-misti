@@ -62,7 +62,7 @@ export class MistiExecutor {
       }
     }
 
-    // Неинтерактивный режим: если передано имя контракта
+    // Non-interactive mode: if contract name is provided
     if (args._.length > 1 && !blueprintProjectName) {
       blueprintProjectName = args._[1];
     }
@@ -75,13 +75,13 @@ export class MistiExecutor {
           `Contract with name '${blueprintProjectName}' not found. Available contracts: ${available}`
         );
       }
-      // Получаем projectInfo
+      // Get project info
       const project = await extractProjectInfo(compile.name);
-      // Используем project.target (а не compile.path!)
+      // Use project.target (not compile.path!)
       return new MistiExecutor(project.projectName, [project.target], ui);
     }
 
-    // Интерактивный режим
+    // Interactive mode
     const project = await selectProject(ui, args);
     return new MistiExecutor(project.projectName, [project.target], ui);
   }
