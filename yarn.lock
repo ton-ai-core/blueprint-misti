@@ -1478,10 +1478,10 @@
     "@ton/core" "^0.60.0"
     "@ton/crypto" "^3.3.0"
 
-"@ton-ai-core/blueprint@^0.30.13":
-  version "0.30.13"
-  resolved "https://registry.yarnpkg.com/@ton-ai-core/blueprint/-/blueprint-0.30.13.tgz#1e60f179ef39215ba2da573d391010f00f0a49d5"
-  integrity sha512-iJ6Vk4WlBKrVOjzAWVCAHN6RT2VnJbEPkLFiDhl6hRwwngJtEao+btJgcprUlHePEvt6S86GkOc19V/bgqKCgQ==
+"@ton-ai-core/blueprint@^0.30.16":
+  version "0.30.16"
+  resolved "https://registry.yarnpkg.com/@ton-ai-core/blueprint/-/blueprint-0.30.16.tgz#93faeecbf02829e707b8d333d1338bffdeec5b50"
+  integrity sha512-7YWIfq06cdD1+8LKPhDc1MR/26XuU8XaWMUlPmnUX3ICpd37+9pghccKC5dTU1DJ9B3gxnOLLMgmHbaE1QGK0Q==
   dependencies:
     "@ton-api/client" "^0.2.0"
     "@ton-api/ton-adapter" "^0.2.0"

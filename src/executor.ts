@@ -75,7 +75,9 @@ export class MistiExecutor {
         return new MistiExecutor(project.projectName, argsStr, ui);
       } catch (error) {
         // If not a valid project, continue with other methods
-        ui.write(`${Sym.WARN} '${projectName}' is not recognized as a valid project. Continuing with alternative methods.`);
+        ui.write(
+          `${Sym.WARN} '${projectName}' is not recognized as a valid project. Continuing with alternative methods.`,
+        );
       }
     }
 
