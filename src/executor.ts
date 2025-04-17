@@ -64,20 +64,51 @@ export class MistiExecutor {
       }
     }
 
-    // Check if the first argument is a project name (non-interactive mode)
+    // Check if the first positional argument is a project name (non-interactive mode)
     // This handles the case when user runs: `npx blueprint misti MyContract`
-    if (args._.length > 1) {
-      const projectName = args._[1];
+    if (args._.length > 1 && !blueprintProjectName) {
+      blueprintProjectName = args._[1];
+    }
+
+    // Try to find the project if a name was specified
+    if (blueprintProjectName) {
       try {
-        const project = await extractProjectInfo(projectName);
-        const tactPath = this.generateTactConfig(project, ".");
-        argsStr.push(tactPath);
-        return new MistiExecutor(project.projectName, argsStr, ui);
-      } catch (error) {
-        // If not a valid project, continue with other methods
-        ui.write(
-          `${Sym.WARN} '${projectName}' is not recognized as a valid project. Continuing with alternative methods.`,
+        // First find all available compilations
+        const compiles = await findCompiles();
+        // Check if the specified project exists
+        const projectExists = compiles.some(
+          (c) => c.name === blueprintProjectName,
         );
+
+        if (!projectExists) {
+          // If project name was explicitly specified with --blueprint-project and not found, show error
+          if (projectIndex !== -1) {
+            throw new Error(`Project '${blueprintProjectName}' not found`);
+          }
+          // If it was a positional argument that's not found, warn and continue
+          ui.write(
+            `${Sym.WARN} '${blueprintProjectName}' is not recognized as a valid project. Continuing with alternative methods.`,
+          );
+        } else {
+          // Project found, proceed with it
+          const project = await extractProjectInfo(blueprintProjectName);
+          const tactPath = this.generateTactConfig(project, ".");
+          argsStr.push(tactPath);
+          return new MistiExecutor(project.projectName, argsStr, ui);
+        }
+      } catch (error) {
+        // If error in extracting project info
+        if (error instanceof Error) {
+          ui.write(
+            `${Sym.WARN} Error processing project '${blueprintProjectName}': ${error.message}`,
+          );
+        }
+        // If project name was explicitly specified with --blueprint-project and failed, show error
+        if (projectIndex !== -1) {
+          throw new Error(`Error processing project '${blueprintProjectName}'`);
+        }
+        // Otherwise warn and continue with alternative methods
+        ui.write(`${Sym.WARN} Continuing with alternative methods.`);
       }
     }
 
@@ -91,11 +122,8 @@ export class MistiExecutor {
       const projectName = path.basename(tactPath).split(".")[0];
       return new MistiExecutor(projectName, argsStr, ui);
     } else {
-      const project = blueprintProjectName
-        ? // The user has specified the project name using --blueprint-project
-          await extractProjectInfo(blueprintProjectName)
-        : // Interactively select the project
-          await selectProject(ui, args);
+      // Interactively select the project
+      const project = await selectProject(ui, args);
       try {
         const tactPath = this.generateTactConfig(project, ".");
         argsStr.push(tactPath);
