@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Use project.target for non-interactive contract selection (fixes JSON error)
+
 ## [0.8.5] - 2025-04-17
 
 ### Fixed
