@@ -9,7 +9,6 @@ import {
 import {
   Result,
   runMistiCommand,
-  createMistiCommand,
 } from "@nowarp/misti/dist/cli";
 import { setStdlibPath } from "./stdlibPaths";
 import fs from "fs";
@@ -52,86 +51,39 @@ export class MistiExecutor {
     const argsStr = argsToStringList(args).slice(1);
 
     // Find and remove --blueprint-project argument
-    // That's a blueprint-misti argument, not a Misti argument
     let blueprintProjectName: string | undefined;
     const projectIndex = argsStr.indexOf("--blueprint-project");
     if (projectIndex !== -1) {
       if (projectIndex + 1 < argsStr.length) {
         blueprintProjectName = argsStr[projectIndex + 1];
-        argsStr.splice(projectIndex, 2); // Remove --blueprint-project and its value
+        argsStr.splice(projectIndex, 2);
       } else {
         throw new Error("--blueprint-project argument is missing a value");
       }
     }
 
-    // Check if the first positional argument is a project name (non-interactive mode)
-    // This handles the case when user runs: `npx blueprint misti MyContract`
+    // Неинтерактивный режим: если передано имя контракта
     if (args._.length > 1 && !blueprintProjectName) {
       blueprintProjectName = args._[1];
     }
-
-    // Try to find the project if a name was specified
     if (blueprintProjectName) {
-      try {
-        // First find all available compilations
-        const compiles = await findCompiles();
-        // Check if the specified project exists
-        const projectExists = compiles.some(
-          (c) => c.name === blueprintProjectName,
+      const compiles = await findCompiles();
+      const compile = compiles.find(c => c.name === blueprintProjectName);
+      if (!compile) {
+        const available = compiles.map(c => c.name).join(", ");
+        throw new Error(
+          `Contract with name '${blueprintProjectName}' not found. Available contracts: ${available}`
         );
-
-        if (!projectExists) {
-          // If project name was explicitly specified with --blueprint-project and not found, show error
-          if (projectIndex !== -1) {
-            throw new Error(`Project '${blueprintProjectName}' not found`);
-          }
-          // If it was a positional argument that's not found, warn and continue
-          ui.write(
-            `${Sym.WARN} '${blueprintProjectName}' is not recognized as a valid project. Continuing with alternative methods.`,
-          );
-        } else {
-          // Project found, proceed with it
-          const project = await extractProjectInfo(blueprintProjectName);
-          const tactPath = this.generateTactConfig(project, ".");
-          argsStr.push(tactPath);
-          return new MistiExecutor(project.projectName, argsStr, ui);
-        }
-      } catch (error) {
-        // If error in extracting project info
-        if (error instanceof Error) {
-          ui.write(
-            `${Sym.WARN} Error processing project '${blueprintProjectName}': ${error.message}`,
-          );
-        }
-        // If project name was explicitly specified with --blueprint-project and failed, show error
-        if (projectIndex !== -1) {
-          throw new Error(`Error processing project '${blueprintProjectName}'`);
-        }
-        // Otherwise warn and continue with alternative methods
-        ui.write(`${Sym.WARN} Continuing with alternative methods.`);
       }
+      // Получаем projectInfo
+      const project = await extractProjectInfo(compile.name);
+      // Используем project.target (а не compile.path!)
+      return new MistiExecutor(project.projectName, [project.target], ui);
     }
 
-    const command = createMistiCommand();
-    await command.parseAsync(argsStr, { from: "user" });
-    const tactPathIsDefined = command.args.length > 0;
-    if (tactPathIsDefined) {
-      // The path to the Tact configuration or contract is explicitly specified
-      // in arguments (e.g. yarn blueprint misti path/to/contract.tact).
-      const tactPath = command.args[0];
-      const projectName = path.basename(tactPath).split(".")[0];
-      return new MistiExecutor(projectName, argsStr, ui);
-    } else {
-      // Interactively select the project
-      const project = await selectProject(ui, args);
-      try {
-        const tactPath = this.generateTactConfig(project, ".");
-        argsStr.push(tactPath);
-        return new MistiExecutor(project.projectName, argsStr, ui);
-      } catch {
-        throw new Error(`Cannot create a Tact config in current directory`);
-      }
-    }
+    // Интерактивный режим
+    const project = await selectProject(ui, args);
+    return new MistiExecutor(project.projectName, [project.target], ui);
   }
 
   /**
