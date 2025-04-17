@@ -6,10 +6,7 @@ import {
   extractProjectInfo,
   argsToStringList,
 } from "./blueprint";
-import {
-  Result,
-  runMistiCommand,
-} from "@nowarp/misti/dist/cli";
+import { Result, runMistiCommand } from "@nowarp/misti/dist/cli";
 import { setStdlibPath } from "./stdlibPaths";
 import fs from "fs";
 import path from "path";
@@ -68,11 +65,11 @@ export class MistiExecutor {
     }
     if (blueprintProjectName) {
       const compiles = await findCompiles();
-      const compile = compiles.find(c => c.name === blueprintProjectName);
+      const compile = compiles.find((c) => c.name === blueprintProjectName);
       if (!compile) {
-        const available = compiles.map(c => c.name).join(", ");
+        const available = compiles.map((c) => c.name).join(", ");
         throw new Error(
-          `Contract with name '${blueprintProjectName}' not found. Available contracts: ${available}`
+          `Contract with name '${blueprintProjectName}' not found. Available contracts: ${available}`,
         );
       }
       // Get project info
