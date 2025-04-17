@@ -32,6 +32,11 @@ It will run the analysis of the available project, if there is one, or show an i
 
 ![img](./img/select-project.png)
 
+You can also specify the project name directly to run in non-interactive mode:
+```bash
+yarn blueprint misti MyContract
+```
+
 See the [documentation](https://nowarp.io/tools/misti/) for the available configuration options.
 
 ## Resources

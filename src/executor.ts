@@ -64,6 +64,21 @@ export class MistiExecutor {
       }
     }
 
+    // Check if the first argument is a project name (non-interactive mode)
+    // This handles the case when user runs: `npx blueprint misti MyContract`
+    if (args._.length > 1) {
+      const projectName = args._[1];
+      try {
+        const project = await extractProjectInfo(projectName);
+        const tactPath = this.generateTactConfig(project, ".");
+        argsStr.push(tactPath);
+        return new MistiExecutor(project.projectName, argsStr, ui);
+      } catch (error) {
+        // If not a valid project, continue with other methods
+        ui.write(`${Sym.WARN} '${projectName}' is not recognized as a valid project. Continuing with alternative methods.`);
+      }
+    }
+
     const command = createMistiCommand();
     await command.parseAsync(argsStr, { from: "user" });
     const tactPathIsDefined = command.args.length > 0;

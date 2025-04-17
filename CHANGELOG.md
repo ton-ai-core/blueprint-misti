@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Non-interactive mode support: `npx blueprint misti MyContract`
+
+### Fixed
+- Fixed main file path in package.json for correct package import
+
 ## [0.8.3] - 2025-04-16
 
 ### Fixed
