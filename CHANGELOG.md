@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.5] - 2025-04-17
+
 ### Fixed
 - Fixed non-interactive mode to correctly recognize project names using the same mechanism as interactive mode
 
