@@ -65,7 +65,7 @@ export async function extractProjectInfo(
         target: compilerConfig.target,
         options: compilerConfig.options,
       };
-    default:
+    case undefined:
       // XXX: `compilerConfig.lang` might be *anything* according to the Blueprint API
       throw new Error(
         `Please specify \`lang\` property in ${getCompileConfigPath(projectName)}`,

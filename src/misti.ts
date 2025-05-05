@@ -9,7 +9,7 @@ import { Result, resultToString } from "@nowarp/misti/dist/cli";
  * Exit codes reference: https://nowarp.io/tools/misti/docs/tutorial/cli#exit-codes
  */
 function handleResult(result: Result, ui: UIProvider): number {
-  const resultStr = resultToString(result, "plain");
+  const resultStr = resultToString(result, "plain", false);
   switch (result.kind) {
     case "warnings":
       ui.write(resultStr);
