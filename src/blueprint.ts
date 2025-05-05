@@ -70,6 +70,9 @@ export async function extractProjectInfo(
       throw new Error(
         `Please specify \`lang\` property in ${getCompileConfigPath(projectName)}`,
       );
+    default:
+      // Handle any other unexpected language values
+      throw new Error(`Unsupported language: ${compilerConfig.lang}`);
   }
 }
 
