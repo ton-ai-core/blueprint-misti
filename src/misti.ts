@@ -51,12 +51,12 @@ export const misti: Runner = async (args: Args, ui: UIProvider) => {
     // Check for --all flag
     // Rely only on positional arguments, assuming Blueprint passes unknown flags here
     const positionalArgs = args._.slice(1); // Args after 'misti' subcommand
-    const isAllFlagSet = positionalArgs.includes('--all');
+    const isAllFlagSet = positionalArgs.includes("--all");
 
     // Filter out --all from args passed to other functions if necessary
     const filteredArgs = { ...args };
     if (isAllFlagSet) {
-      filteredArgs._ = args._.filter(arg => arg !== '--all');
+      filteredArgs._ = args._.filter((arg) => arg !== "--all");
     }
 
     if (isAllFlagSet) {
