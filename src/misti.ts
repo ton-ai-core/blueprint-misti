@@ -7,12 +7,8 @@ import {
   runMistiCommand,
 } from "@nowarp/misti/dist/cli";
 import { findCompiles } from "@ton-ai-core/blueprint/dist/utils";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import {
-  TactProjectInfo,
-  extractProjectInfo,
-  argsToStringList,
-} from "./blueprint";
+// Prefix unused imports with _ to satisfy linter ('Allowed unused vars must match /^_/u')
+import { TactProjectInfo as _TactProjectInfo, extractProjectInfo, argsToStringList as _argsToStringList } from "./blueprint";
 import { setStdlibPath } from "./stdlibPaths";
 
 /**
