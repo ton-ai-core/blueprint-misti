@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `--all` flag to run Misti analysis on all projects found in the workspace.
+
 ## [0.8.6] - 2025-04-17
 
 ### Fixed
