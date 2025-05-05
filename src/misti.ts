@@ -1,10 +1,18 @@
 import { Runner, Args, UIProvider } from "@ton-ai-core/blueprint";
 import { MistiExecutor } from "./executor";
 import { Sym } from "./util";
-import { Result, resultToString, runMistiCommand } from "@nowarp/misti/dist/cli";
+import {
+  Result,
+  resultToString,
+  runMistiCommand,
+} from "@nowarp/misti/dist/cli";
 import { findCompiles } from "@ton-ai-core/blueprint/dist/utils";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { TactProjectInfo, extractProjectInfo, argsToStringList } from "./blueprint";
+import {
+  TactProjectInfo,
+  extractProjectInfo,
+  argsToStringList,
+} from "./blueprint";
 import { setStdlibPath } from "./stdlibPaths";
 
 /**
@@ -42,10 +50,10 @@ export const misti: Runner = async (args: Args, ui: UIProvider) => {
   try {
     // Check for --all flag (using index access for potential unknown flags)
     // @ts-expect-error - Args type doesn't know about 'all', but blueprint might pass it
-    if (args['all'] === true) {
+    if (args["all"] === true) {
       ui.write(`[INFO] Analyzing all projects...\n`);
       const compiles = await findCompiles();
-      const results: { project: string, result: Result }[] = [];
+      const results: { project: string; result: Result }[] = [];
       let hasError = false;
       let hasWarning = false;
 
@@ -53,28 +61,36 @@ export const misti: Runner = async (args: Args, ui: UIProvider) => {
         let mistiResult: Result | null = null;
         try {
           const projectInfo = await extractProjectInfo(compile.name);
-          ui.write(`${Sym.WAIT} Analyzing project: ${projectInfo.projectName}...`);
+          ui.write(
+            `${Sym.WAIT} Analyzing project: ${projectInfo.projectName}...`,
+          );
 
-          // --- Replace simulation with actual call --- 
+          // --- Replace simulation with actual call ---
           const projectArgs = [projectInfo.target];
           setStdlibPath(projectArgs);
           // Actual call to run Misti analysis
-          mistiResult = (await runMistiCommand(projectArgs))[1]; 
-          // --- Removed simulation --- 
+          mistiResult = (await runMistiCommand(projectArgs))[1];
+          // --- Removed simulation ---
 
-          if (!mistiResult) throw new Error("Analysis did not produce a result");
+          if (!mistiResult)
+            throw new Error("Analysis did not produce a result");
 
           // Prepare the output string first
           const resultStr = resultToString(mistiResult, "plain");
           // Call ui.write with a single argument
           ui.write(resultStr);
-          results.push({ project: projectInfo.projectName, result: mistiResult });
+          results.push({
+            project: projectInfo.projectName,
+            result: mistiResult,
+          });
 
           if (mistiResult.kind === "error") hasError = true;
           if (mistiResult.kind === "warnings") hasWarning = true;
-
         } catch (projectErr) {
-          const errorMessage = projectErr instanceof Error ? projectErr.message : JSON.stringify(projectErr);
+          const errorMessage =
+            projectErr instanceof Error
+              ? projectErr.message
+              : JSON.stringify(projectErr);
           // Prepare the full error string first
           const errorOutput = `${Sym.ERR} Failed to analyze project ${compile.name}: ${errorMessage}\n`;
           // Call ui.write with a single argument
@@ -99,7 +115,6 @@ export const misti: Runner = async (args: Args, ui: UIProvider) => {
       }
       ui.write(finalMessage);
       process.exit(finalExitCode);
-
     } else {
       // Original logic for single project (interactive or specified)
       const executor = await MistiExecutor.fromArgs(args, ui);
