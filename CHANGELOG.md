@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `--all` flag to run Misti analysis on all projects found in the workspace.
+### Fixed
+- Detect `--all` flag correctly by checking positional arguments instead of relying on potentially non-existent parsed property.
+
 ## [0.8.7] - 2025-05-05
 
 ### Added
