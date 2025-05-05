@@ -48,9 +48,18 @@ function handleResult(result: Result, ui: UIProvider): number {
 
 export const misti: Runner = async (args: Args, ui: UIProvider) => {
   try {
-    // Check for --all flag (using index access for potential unknown flags)
-    // @ts-expect-error - Args type doesn't know about 'all', but blueprint might pass it
-    if (args["all"] === true) {
+    // Check for --all flag
+    // Rely only on positional arguments, assuming Blueprint passes unknown flags here
+    const positionalArgs = args._.slice(1); // Args after 'misti' subcommand
+    const isAllFlagSet = positionalArgs.includes('--all');
+
+    // Filter out --all from args passed to other functions if necessary
+    const filteredArgs = { ...args };
+    if (isAllFlagSet) {
+      filteredArgs._ = args._.filter(arg => arg !== '--all');
+    }
+
+    if (isAllFlagSet) {
       ui.write(`[INFO] Analyzing all projects...\n`);
       const compiles = await findCompiles();
       const results: { project: string; result: Result }[] = [];
@@ -117,6 +126,7 @@ export const misti: Runner = async (args: Args, ui: UIProvider) => {
       process.exit(finalExitCode);
     } else {
       // Original logic for single project (interactive or specified)
+      // Pass original args (or filteredArgs if needed by MistiExecutor)
       const executor = await MistiExecutor.fromArgs(args, ui);
       const result = await executor.execute();
       process.exit(handleResult(result, ui));
