@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.9] - 2025-05-30
+
 ### Changed
 - Updated `@tact-lang/compiler` to `~1.6.13`
 - Updated `@ton-ai-core/blueprint` to `^0.34.3`
