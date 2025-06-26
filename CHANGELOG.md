@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Chore: Update `package.json`.
+
 ## [0.8.9] - 2025-05-30
 
 ### Changed
